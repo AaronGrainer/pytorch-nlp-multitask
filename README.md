@@ -9,7 +9,7 @@
   </a>
 </p>
 
-This project showcases the codebase required to train and serve a Pytorch Multitask Natural Learning Processing model using AI Platform, a few tweaks are required here to adopt Pytorch as AI Platform is mainly used alongside Tensorflow. 
+This project showcases the codebase required to train and serve a Pytorch Multitask Natural Learning Processing model using AI Platform with a custom docker container.
 
 ## Multitask Learning
 
