@@ -4,7 +4,7 @@ PROJECT_ID ?= $(shell gcloud config list --format="value(core.project)")
 PROJECT_BUCKET_NAME ?= ${PROJECT_ID}-${BUCKET_NAME}
 
 JOB_NAME ?= custom_container_job_$(shell date +%Y%m%d_%H%M%S)
-JOB_DIR_GCS ?= gs://${PROJECT_BUCKET_NAME}/${JOB_DIR_BASE}
+JOB_DIR_GCS ?= gs://${PROJECT_BUCKET_NAME}/${JOB_DIR}
 
 IMAGE_URI_LOCAL ?= ${IMAGE_REPO_NAME}:${IMAGE_TAG}
 IMAGE_URI ?= gcr.io/${PROJECT_ID}/${IMAGE_REPO_NAME}:${IMAGE_TAG}
@@ -13,7 +13,7 @@ SCALE_TIER ?= BASIC_GPU
 
 run-local:
 	python -m trainer.task \
-		--job-dir=./${JOB_DIR_BASE} \
+		--job-dir=${JOB_DIR} \
 		--batch-size=${BATCH_SIZE}
 
 create-bucket:
@@ -22,7 +22,7 @@ create-bucket:
 docker-local-train:
 	docker build -f Dockerfile -t ${IMAGE_URI_LOCAL} ./
 	docker run ${IMAGE_URI_LOCAL} \
-		--job-dir=./${JOB_DIR_BASE} \
+		--job-dir=./${JOB_DIR} \
 		--batch-size=${BATCH_SIZE}
 
 cloud-train:
@@ -40,4 +40,4 @@ cloud-train:
 	# gcloud ai-platform jobs stream-logs ${JOB_NAME}
 
 verify-model:
-	gsutil ls ${JOB_DIR_GCS}/model_*
+	gsutil ls ${JOB_DIR_GCS}/checkpoint-*
