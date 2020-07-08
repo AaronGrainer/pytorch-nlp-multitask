@@ -2,7 +2,7 @@
 
 <p align="center">
   <a>
-    <img alt="Code Progress" src="https://img.shields.io/badge/Code-In%20Progress-yellow">
+    <img alt="Code Progress" src="https://img.shields.io/badge/Code-Completed-success">
   </a>
   <a href="https://github.com/aarongrainer/pytorch-nlp-multitask/blob/master/LICENSE">
     <img alt="GitHub" src="https://img.shields.io/github/license/aarongrainer/pytorch-nlp-multitask?color=blue">
