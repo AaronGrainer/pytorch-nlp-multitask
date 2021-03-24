@@ -30,7 +30,7 @@ pyparsing==2.4.7
 pytz==2020.1
 regex==2020.6.8
 requests==2.24.0
-rsa==3.4.2
+rsa==4.1
 sacremoses==0.0.43
 sentencepiece==0.1.91
 six==1.15.0
