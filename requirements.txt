@@ -21,7 +21,7 @@ nlp==0.2.0
 numpy==1.18.5
 olefile==0.46
 packaging==20.4
-Pillow==7.1.2
+Pillow==8.2.0
 protobuf==3.12.2
 pyarrow==0.17.1
 pyasn1==0.4.8
